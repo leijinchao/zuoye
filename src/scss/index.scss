@@ -11,12 +11,14 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+    background: #F0EFED;
     flex-direction: column;
     header {
         width: 100%;
         height: pxTorem(44px);
         background: yellow;
         display: flex;
+        flex-shrink: 0;
         align-items: center;
         background: #06C1AE;
         .site {
@@ -73,11 +75,153 @@ body {
         }
     }
     section {
+        width: 100%;
         flex-grow: 1;
+        overflow: hidden;
+        position: relative;
+        .seSroll {
+            width: 100%;
+            position: absolute;
+            .banner {
+                background: #fff;
+                width: 100%;
+                border-bottom: 1px solid #ccc;
+                img {
+                    width: 100%;
+                }
+            }
+            .swiper-container {
+                width: 100%;
+                margin-bottom: pxTorem(10px);
+                background: #fff;
+                .swiper-wrapper {
+                    width: 100%;
+                    .swiper-slide {
+                        width: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        dl {
+                            width: 20%;
+                            padding: pxTorem(8px) 0;
+                            dt {
+                                width: 100%;
+                                text-align: center;
+                                img {
+                                    width: 50%;
+                                }
+                            }
+                            dd {
+                                width: 100%;
+                                color: #888;
+                                line-height: pxTorem(25px);
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+            .advertising {
+                width: 100%;
+                background: #fff;
+                .advertisingItem {
+                    width: 100%;
+                    height: pxTorem(35px);
+                    line-height: pxTorem(35px);
+                    font-size: pxTorem(16px);
+                    margin: 0 pxTorem(10px);
+                    box-sizing: border-box;
+                    color: #666;
+                    border-bottom: 1px solid #ccc;
+                }
+                .advertisingBox {
+                    width: 100%;
+                    dl {
+                        display: flex;
+                        width: 100%;
+                        border-bottom: 1px solid #ccc;
+                        padding: pxTorem(10px);
+                        box-sizing: border-box;
+                        dt {
+                            width: pxTorem(103px);
+                            height: pxTorem(93px);
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        dd {
+                            flex-grow: 1;
+                            padding-left: pxTorem(10px);
+                            h3 {
+                                font-size: pxTorem(16px);
+                                line-height: pxTorem(30px);
+                            }
+                            p {
+                                font-size: pxTorem(12px);
+                                line-height: pxTorem(20px);
+                                color: #999;
+                            }
+                            .dl-M {
+                                display: flex;
+                                align-items: flex-end;
+                                margin-top: pxTorem(20px);
+                                justify-content: space-between;
+                                .dl-M-M {
+                                    display: flex;
+                                    align-items: flex-end;
+                                    .month {
+                                        color: #06C1AE;
+                                        padding-right: pxTorem(5px);
+                                        b {
+                                            font-size: pxTorem(16px);
+                                        }
+                                    }
+                                    span {
+                                        color: #999;
+                                    }
+                                }
+                                .num {
+                                    display: flex;
+                                    align-items: flex-end;
+                                    color: #999;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .srollUp {
+                width: 100%;
+                height: pxTorem(40px);
+                text-align: center;
+                line-height: pxTorem(40px);
+                position: absolute;
+                top: pxTorem(-40px);
+                left: 0;
+            }
+            .srollDown {
+                width: 100%;
+                height: pxTorem(40px);
+                text-align: center;
+                line-height: pxTorem(40px);
+                position: absolute;
+                bottom: pxTorem(-40px);
+                left: 0;
+            }
+        }
     }
     footer {
         width: 100%;
         height: pxTorem(44px);
         background: yellow;
+        flex-shrink: 0;
     }
+}
+
+.swiper-pagination-bullet {
+    width: pxTorem(5px)!important;
+    height: pxTorem(5px)!important;
+}
+
+.swiper-pagination-bullets {
+    bottom: pxTorem(-2px)!important;
 }
