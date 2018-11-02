@@ -6,6 +6,7 @@ var fs = require("fs");
 var url = require("url");
 var server = require("gulp-webserver");
 var Json = require("./src/data/data.json");
+var dataJson = require("./src/data/seek.json")
 var path = require("path")
 gulp.task("devSass", function() {
     return gulp.src("./src/scss/*.scss")
@@ -28,6 +29,8 @@ gulp.task("devServer", function() {
                 var pathname = url.parse(req.url).pathname
                 if (pathname == "/api/list") {
                     res.end(JSON.stringify({ code: 0, data: Json }))
+                } else if (pathname == "/Api/seek") {
+                    res.end(JSON.stringify({ code: 0, data: dataJson }))
                 } else {
                     pathname = pathname === "/" ? "index.html" : pathname;
                     res.end(fs.readFileSync(path.join(__dirname, "src", pathname)))
@@ -35,4 +38,4 @@ gulp.task("devServer", function() {
             }
         }))
 })
-gulp.task("dev", gulp.parallel("devSass", "watch"))
+gulp.task("dev", gulp.parallel("devSass", "watch", "devServer"))

@@ -110,3 +110,35 @@ function pullUp() {
     $(".advertisingBox").html(" ")
     init()
 }
+
+
+$("#inps").on("input", function() {
+    var inpVal = $(this).val();
+    if (inpVal !== "") {
+        $(".newSeek").removeClass("active");
+        $.ajax({
+            url: "/Api/seek",
+            success: function(opt) {
+                var data = JSON.parse(opt);
+                if (data.code == 0) {
+                    seekNames(data.data, inpVal)
+                } else {
+                    console.log("错误")
+                }
+
+            }
+        })
+    } else {
+        $(".newSeek").addClass("active");
+    }
+})
+
+function seekNames(opt, inpVal) {
+    var html = "";
+    opt.forEach(function(item) {
+        if (item.name[0].indexOf(inpVal) != -1 || item.name[1].indexOf(inpVal) != -1 || item.name[2].indexOf(inpVal) != -1) {
+            html += `<li>${item.name[0]}</li>`
+        }
+    })
+    $(".newSeek").html(html)
+}

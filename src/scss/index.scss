@@ -38,6 +38,7 @@ body {
             background: #05A494;
             display: flex;
             border-radius: pxTorem(5px);
+            position: relative;
             i {
                 font-size: pxTorem(16px);
                 display: inline-block;
@@ -52,6 +53,23 @@ body {
                 border: none;
                 outline: none;
                 color: #fff;
+            }
+            .newSeek {
+                position: absolute;
+                top: pxTorem(30px);
+                width: 100%;
+                background: #fff;
+                z-index: 999;
+                padding: pxTorem(10px);
+                box-sizing: border-box;
+                li {
+                    list-style: none;
+                    line-height: pxTorem(20px);
+                    border-bottom: 1px solid #ccc;
+                }
+            }
+            .newSeek.active {
+                display: none;
             }
         }
         .mine {
@@ -208,12 +226,6 @@ body {
                 left: 0;
             }
         }
-    }
-    footer {
-        width: 100%;
-        height: pxTorem(44px);
-        background: yellow;
-        flex-shrink: 0;
     }
 }
 
